@@ -1,7 +1,7 @@
 from src.product import Product
 
 
-class Category(Product):
+class Category():
     name: str
     description: str
     products: list
