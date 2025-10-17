@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category():
     name: str
     description: str
@@ -16,8 +19,11 @@ class Category():
 
     def add_product(self, product):
         """Добавление продуктов в категорию"""
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            print("Указан объект с неправильным/недостаточным объёмом характеристик")
 
     @property
     def products(self):
