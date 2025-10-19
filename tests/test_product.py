@@ -1,7 +1,6 @@
 import pytest
 
 from src.product import Product
-from tests.conftest import first_smartphone, first_LawnGrass, second_LawnGrass
 
 
 def test_product_init(first_product):
@@ -63,4 +62,4 @@ def test_add_similar(first_smartphone, second_smartphone, first_LawnGrass, secon
     assert first_smartphone + second_smartphone == 2580000.0
     assert first_LawnGrass + second_LawnGrass == 16750.0
     with pytest.raises(TypeError):
-        first_smartphone + first_LawnGrass
+        print(first_smartphone + first_LawnGrass)
