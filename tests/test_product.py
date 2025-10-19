@@ -1,4 +1,7 @@
+import pytest
+
 from src.product import Product
+from tests.conftest import first_smartphone, first_LawnGrass, second_LawnGrass
 
 
 def test_product_init(first_product):
@@ -33,3 +36,31 @@ def test_str(first_product):
 
 def test_add(first_product, third_product):
     assert (first_product + third_product) == 2580000.0
+
+
+def test_smartphone_init(first_smartphone):
+    assert first_smartphone.name == "Samsung Galaxy S23 Ultra"
+    assert first_smartphone.description == "256GB, Серый цвет, 200MP камера"
+    assert first_smartphone.price == 180000.0
+    assert first_smartphone.quantity == 5
+    assert first_smartphone.efficiency == 95.5
+    assert first_smartphone.model == "S23 Ultra"
+    assert first_smartphone.memory == 256
+    assert first_smartphone.color == "Серый"
+
+
+def test_LawnGrass_init(first_LawnGrass):
+    assert first_LawnGrass.name == "Газонная трава"
+    assert first_LawnGrass.description == "Элитная трава для газона"
+    assert first_LawnGrass.price == 500.0
+    assert first_LawnGrass.quantity == 20
+    assert first_LawnGrass.country == "Россия"
+    assert first_LawnGrass.germination_period == "7 дней"
+    assert first_LawnGrass.color == "Зеленый"
+
+
+def test_add_similar(first_smartphone, second_smartphone, first_LawnGrass, second_LawnGrass):
+    assert first_smartphone + second_smartphone == 2580000.0
+    assert first_LawnGrass + second_LawnGrass == 16750.0
+    with pytest.raises(TypeError):
+        first_smartphone + first_LawnGrass
