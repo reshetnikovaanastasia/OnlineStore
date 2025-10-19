@@ -29,7 +29,7 @@ class Category():
             self.__products.append(product)
             Category.product_count += 1
         else:
-            print("Указан объект с неправильным/недостаточным объёмом характеристик")
+            raise TypeError
 
     @property
     def products(self):
