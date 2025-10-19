@@ -19,6 +19,14 @@ def second_product():
             "quantity": 6}
 
 
+@pytest.fixture
+def third_product():
+    return Product("Iphone 15",
+                   "512GB, Gray space",
+                   210000.0,
+                   8)
+
+
 @pytest.fixture()
 def first_category():
     return Category("Смартфоны",

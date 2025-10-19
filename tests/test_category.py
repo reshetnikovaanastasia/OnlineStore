@@ -14,3 +14,7 @@ def test_add_products(first_category, first_product):
                                        f"Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
                                        f"{first_product.name}, {first_product.price} руб. "
                                        f"Остаток: {first_product.quantity} шт.\n")
+
+
+def test_str_category(first_category):
+    assert str(first_category) == "Смартфоны, количество продуктов: 13 шт."
