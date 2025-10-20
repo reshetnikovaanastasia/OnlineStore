@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_category_init(first_category, second_category):
     assert first_category.name == "Смартфоны"
     assert first_category.description == ("Смартфоны, как средство не только коммуникации, "
@@ -18,3 +21,8 @@ def test_add_products(first_category, first_product):
 
 def test_str_category(first_category):
     assert str(first_category) == "Смартфоны, количество продуктов: 13 шт."
+
+
+def test_false_product(first_category):
+    with pytest.raises(TypeError):
+        first_category.add_product("Не продукт")
