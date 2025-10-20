@@ -1,4 +1,20 @@
-class Product:
+from abc import ABC, abstractmethod
+
+from src.mixin_repr import MixinRepr
+
+
+class BaseProduct(ABC):
+
+    @abstractmethod
+    def __str__(self):
+        pass
+
+    @abstractmethod
+    def __add__(self, other):
+        pass
+
+
+class Product(BaseProduct, MixinRepr):
     name: str
     description: str
     price: float
@@ -9,6 +25,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
