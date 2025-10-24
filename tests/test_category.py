@@ -26,3 +26,8 @@ def test_str_category(first_category):
 def test_false_product(first_category):
     with pytest.raises(TypeError):
         first_category.add_product("Не продукт")
+
+
+def test_middle_price(first_category, no_products_category):
+    assert first_category.middle_price() == 195000.0
+    assert no_products_category.middle_price() == 0
